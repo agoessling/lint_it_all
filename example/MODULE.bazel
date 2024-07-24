@@ -1,0 +1,2 @@
+bazel_dep(name = "lint_it_all", version = "0.0.0")
+local_path_override("lint_it_all", "..")
