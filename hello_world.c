@@ -1,7 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-// This is a very long comment that needs to be wrapped lest you get no presents for christmas.  Jesus!
-int main(void) {
-  printf("Hello World!\n");
-  return 0;
+// deliberately bad code to trigger clang-tidy warning
+int string_to_int(const char *num) { return atoi(num); }
+
+// deliberately insecure code to trigger clang-tidy warning
+void ls() { system("ls"); }
+
+static int compare(int x, int y) {
+  if (x < y)
+    ;
+  { x++; }
+  return x;
+}
+
+int main() {
+  printf("Hello, world!\n");
+  compare(3, 4);
+  char *a = NULL;
+  char *b = 0;
 }

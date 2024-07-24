@@ -1,5 +1,9 @@
 module(name = "lint_it_all", version = "0.1.0")
 
+# bazel_skylib
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+
+# aspect_rules_lint
 bazel_dep(name = "aspect_rules_lint", version = "1.0.0-rc7")
 
 archive_override(
@@ -7,13 +11,16 @@ archive_override(
     strip_prefix = "rules_lint-1.0.0-rc7",
     urls = "https://github.com/aspect-build/rules_lint/releases/download/v1.0.0-rc7/rules_lint-v1.0.0-rc7.tar.gz",
     integrity = "sha256-ndmyATkHCmQ0ZEZ3iRrfMzYTx5z7D8DerVvk9j+90Ag=",
-    patches = ["third_party/rules_lint/0001-Add-C-example-and-file-extension.patch"],
+    patches = [
+        "third_party/rules_lint/0001-Add-C-example-and-file-extension.patch",
+        "third_party/rules_lint/0001-Update-bazel-lib.patch",
+    ],
     patch_strip = 1,
 )
 
+# toolchains_llvm
 bazel_dep(name = "toolchains_llvm", version = "1.0.0")
 
-# Configure and register the toolchain.
 llvm = use_extension("@toolchains_llvm//toolchain/extensions:llvm.bzl", "llvm")
 llvm.toolchain(llvm_version = "17.0.6")
 use_repo(llvm, "llvm_toolchain_llvm")
