@@ -34,9 +34,11 @@ def get_init_file_paths(rel_paths: list[str]) -> list[pathlib.Path]:
 def copy_init_files(files: list[pathlib.Path], root: pathlib.Path) -> None:
     workspace_path = get_workspace()
     for file in files:
-        dest = workspace_path / file.relative_to(root)
+        rel_path = file.relative_to(root)
+        dest = workspace_path / rel_path
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(file, dest)
+        print(f'Copied {rel_path}')
 
 
 def main() -> None:
