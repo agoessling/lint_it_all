@@ -9,4 +9,6 @@ Checks: >
   portability-*,
   readability-*,
 
-WarningsAsErrors: ""
+WarningsAsErrors: "*"
+
+UseColor: true
