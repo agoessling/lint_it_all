@@ -1,5 +1,8 @@
-bazel_dep(name = "lint_it_all", version = "0.0.0")
-local_path_override(module_name = "lint_it_all", path = "..")
+# bazel_skylib
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+
+# aspect_rules_lint
+bazel_dep(name = "aspect_rules_lint", version = "1.0.0-rc7")
 
 archive_override(
     module_name = "aspect_rules_lint",
@@ -13,3 +16,9 @@ archive_override(
     patch_strip = 1,
 )
 
+toolchains_llvm
+bazel_dep(name = "toolchains_llvm", version = "1.0.0")
+
+llvm = use_extension("@toolchains_llvm//toolchain/extensions:llvm.bzl", "llvm")
+llvm.toolchain(llvm_version = "17.0.6")
+use_repo(llvm, "llvm_toolchain_llvm")

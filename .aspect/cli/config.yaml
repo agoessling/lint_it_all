@@ -1,3 +1,0 @@
-lint:
-  aspects:
-    - "@lint_it_all//tools/lint:linters.bzl%clang_tidy"

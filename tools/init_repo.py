@@ -20,24 +20,7 @@ def get_root_from_this(this: str) -> pathlib.Path:
 
 def copy_init_files(root: pathlib.Path) -> None:
     workspace_path = get_workspace()
-
-    srcs = [
-        '.aspect',
-        'tools/format',
-        'tools/lint',
-        '.bazeliskrc',
-        '.clang-format',
-        '.clang-tidy',
-    ]
-    for rel_path in srcs:
-        src = root / pathlib.Path(rel_path)
-        dest = workspace_path / rel_path
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        if src.is_dir():
-            shutil.copytree(src, dest, dirs_exist_ok=True)
-        else:
-            shutil.copy(src, dest)
-        print(f'Copied {rel_path}')
+    print(workspace_path)
 
 
 def main() -> None:
