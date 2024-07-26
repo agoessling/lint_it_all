@@ -5,5 +5,8 @@ py_binary(
         "--this $(rlocationpath init_repo.py)",
     ],
     visibility = ["//visibility:public"],
-    deps = ["@bazel_tools//tools/python/runfiles"],
+    deps = [
+        "@bazel_tools//tools/python/runfiles",
+        "@pip//rich",
+    ],
 )
