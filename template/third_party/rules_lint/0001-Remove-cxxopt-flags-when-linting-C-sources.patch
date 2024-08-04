@@ -1,0 +1,24 @@
+From 771f32c1f593898433165e9ef0d2f91a9bfe69fb Mon Sep 17 00:00:00 2001
+From: Andrew Goessling <agoessling@gmail.com>
+Date: Sun, 4 Aug 2024 11:36:55 -0700
+Subject: [PATCH 2/2] Remove leftover debug print.
+
+---
+ lint/clang_tidy.bzl | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/lint/clang_tidy.bzl b/lint/clang_tidy.bzl
+index 43009cf..3118448 100644
+--- a/lint/clang_tidy.bzl
++++ b/lint/clang_tidy.bzl
+@@ -205,7 +205,6 @@ def _get_args(ctx, compilation_context, srcs):
+     else:
+         user_flags = ctx.fragments.cpp.copts
+         args.extend(_safe_flags(ctx, _toolchain_flags(ctx, user_flags, ACTION_NAMES.c_compile) + rule_flags) + ["-xc"])
+-    print(args)
+ 
+     # add defines
+     for define in compilation_context.defines.to_list():
+-- 
+2.34.1
+

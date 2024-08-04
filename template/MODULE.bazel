@@ -8,6 +8,7 @@ archive_override(
     patch_strip = 1,
     patches = [
         "third_party/rules_lint/0001-C-support.patch",
+        "third_party/rules_lint/0001-Remove-cxxopt-flags-when-linting-C-sources.patch",
         "third_party/rules_lint/0001-Update-bazel-lib.patch",
     ],
     strip_prefix = "rules_lint-1.0.0-rc7",
