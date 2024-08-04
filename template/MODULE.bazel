@@ -7,7 +7,7 @@ archive_override(
     integrity = "sha256-ndmyATkHCmQ0ZEZ3iRrfMzYTx5z7D8DerVvk9j+90Ag=",
     patch_strip = 1,
     patches = [
-        "third_party/rules_lint/0001-Add-C-example-and-file-extension.patch",
+        "third_party/rules_lint/0001-C-support.patch",
         "third_party/rules_lint/0001-Update-bazel-lib.patch",
     ],
     strip_prefix = "rules_lint-1.0.0-rc7",
